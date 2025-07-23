@@ -61,7 +61,34 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Health app glassmorphism colors
+				glass: {
+					text: 'hsl(var(--glass-text))',
+					'text-muted': 'hsl(var(--glass-text-muted))',
+					'text-accent': 'hsl(var(--glass-text-accent))'
+				},
+				coral: 'hsl(var(--coral))',
+				mint: 'hsl(var(--mint))',
+				lavender: 'hsl(var(--lavender))',
+				'sky-blue': 'hsl(var(--sky-blue))',
+				'soft-pink': 'hsl(var(--soft-pink))'
+			},
+			backgroundImage: {
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-secondary': 'var(--gradient-secondary)',
+				'gradient-accent': 'var(--gradient-accent)'
+			},
+			boxShadow: {
+				'glass': 'var(--shadow-glass)',
+				'glass-hover': 'var(--shadow-glass-hover)',
+				'glow-coral': 'var(--glow-coral)',
+				'glow-mint': 'var(--glow-mint)',
+				'glow-lavender': 'var(--glow-lavender)'
+			},
+			backdropBlur: {
+				'glass': '40px',
+				'light': '20px'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

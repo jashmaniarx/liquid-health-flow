@@ -2,41 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Liquid Glassmorphism Health App Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    /* Core glass background gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(255, 45%, 15%), hsl(240, 50%, 8%));
+    --gradient-secondary: linear-gradient(135deg, hsl(260, 40%, 20%), hsl(280, 35%, 12%));
+    --gradient-accent: linear-gradient(135deg, hsl(200, 70%, 90%), hsl(220, 60%, 95%));
+    
+    /* Glass panel colors with transparency */
+    --glass-primary: hsla(240, 20%, 15%, 0.4);
+    --glass-secondary: hsla(260, 25%, 18%, 0.3);
+    --glass-accent: hsla(280, 30%, 20%, 0.25);
+    
+    /* Health-focused accent colors (pastels) */
+    --coral: 15 100% 75%;
+    --mint: 150 70% 80%;
+    --lavender: 260 60% 85%;
+    --sky-blue: 200 80% 85%;
+    --soft-pink: 330 70% 85%;
+    
+    /* Text colors for glass panels */
+    --glass-text: 0 0% 95%;
+    --glass-text-muted: 240 10% 75%;
+    --glass-text-accent: 260 20% 90%;
+    
+    /* Shadow and glow effects */
+    --shadow-glass: 0 8px 32px hsla(240, 30%, 5%, 0.3);
+    --shadow-glass-hover: 0 12px 40px hsla(240, 30%, 5%, 0.4);
+    --glow-coral: 0 0 30px hsla(15, 100%, 75%, 0.3);
+    --glow-mint: 0 0 30px hsla(150, 70%, 80%, 0.3);
+    --glow-lavender: 0 0 30px hsla(260, 60%, 85%, 0.3);
+    
+    /* Base semantic tokens */
+    --background: 240 50% 8%;
+    --foreground: 0 0% 95%;
+    --card: 240 20% 15%;
+    --card-foreground: 0 0% 90%;
+    --primary: 260 60% 85%;
+    --primary-foreground: 240 50% 8%;
+    --secondary: 240 20% 20%;
+    --secondary-foreground: 0 0% 85%;
+    --muted: 240 15% 25%;
+    --muted-foreground: 240 10% 65%;
+    --accent: 15 100% 75%;
+    --accent-foreground: 240 50% 8%;
+    --border: 240 20% 25%;
+    --input: 240 20% 18%;
+    --ring: 260 60% 85%;
+    --radius: 1.5rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -55,43 +70,6 @@ All colors MUST be HSL.
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
 }
 
 @layer base {
@@ -101,5 +79,134 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    background: var(--gradient-primary);
+    background-attachment: fixed;
+    min-height: 100vh;
+    overflow-x: hidden;
   }
+}
+
+@layer components {
+  /* Glassmorphism base styles */
+  .glass-panel {
+    @apply backdrop-blur-[40px] border border-white/10;
+    background: var(--glass-primary);
+    box-shadow: var(--shadow-glass);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .glass-panel:hover {
+    @apply border-white/20;
+    background: var(--glass-secondary);
+    box-shadow: var(--shadow-glass-hover);
+    transform: translateY(-2px);
+  }
+  
+  .glass-secondary {
+    @apply backdrop-blur-[30px] border border-white/8;
+    background: var(--glass-secondary);
+  }
+  
+  .glass-accent {
+    @apply backdrop-blur-[20px] border border-white/15;
+    background: var(--glass-accent);
+  }
+  
+  /* Health accent colors */
+  .text-coral { color: hsl(var(--coral)); }
+  .text-mint { color: hsl(var(--mint)); }
+  .text-lavender { color: hsl(var(--lavender)); }
+  .text-sky-blue { color: hsl(var(--sky-blue)); }
+  .text-soft-pink { color: hsl(var(--soft-pink)); }
+  
+  .bg-coral { background-color: hsl(var(--coral)); }
+  .bg-mint { background-color: hsl(var(--mint)); }
+  .bg-lavender { background-color: hsl(var(--lavender)); }
+  .bg-sky-blue { background-color: hsl(var(--sky-blue)); }
+  .bg-soft-pink { background-color: hsl(var(--soft-pink)); }
+  
+  /* Glass text colors */
+  .text-glass { color: hsl(var(--glass-text)); }
+  .text-glass-muted { color: hsl(var(--glass-text-muted)); }
+  .text-glass-accent { color: hsl(var(--glass-text-accent)); }
+  
+  /* Progress ring animations */
+  .progress-ring {
+    @apply relative;
+    transform: rotate(-90deg);
+  }
+  
+  .progress-ring circle {
+    @apply transition-all duration-700 ease-out;
+    stroke-linecap: round;
+  }
+  
+  /* Pulse glow animations */
+  .glow-coral {
+    box-shadow: var(--glow-coral);
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+  
+  .glow-mint {
+    box-shadow: var(--glow-mint);
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+  
+  .glow-lavender {
+    box-shadow: var(--glow-lavender);
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+  
+  /* Floating animation */
+  .float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  /* Slide up animation for cards */
+  .slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  .slide-up-delay-1 {
+    animation-delay: 0.1s;
+  }
+  
+  .slide-up-delay-2 {
+    animation-delay: 0.2s;
+  }
+  
+  .slide-up-delay-3 {
+    animation-delay: 0.3s;
+  }
+}
+
+@layer utilities {
+  /* Custom animations */
+  @keyframes pulse-glow {
+    0% { box-shadow: var(--shadow-glass); }
+    100% { box-shadow: var(--shadow-glass-hover); }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+  }
+  
+  @keyframes slideUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Backdrop blur utilities */
+  .backdrop-blur-glass { backdrop-filter: blur(40px) saturate(180%); }
+  .backdrop-blur-light { backdrop-filter: blur(20px) saturate(150%); }
 }
