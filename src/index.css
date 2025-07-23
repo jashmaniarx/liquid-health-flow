@@ -103,7 +103,7 @@
   }
   
   .glass-secondary {
-    @apply backdrop-blur-[30px] border border-white/8;
+    @apply backdrop-blur-[30px] border border-white/10;
     background: var(--glass-secondary);
   }
   
