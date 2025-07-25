@@ -1,3 +1,3 @@
 
-**URL**: [https://jashmaniar.liquid-health-flow.app](https://preview--liquid-health-flow.lovable.app)
+**URL**: [https://jashmaniar.pure-motion.vercel.app](https://pure-motion.vercel.app)
 
