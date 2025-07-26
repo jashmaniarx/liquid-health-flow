@@ -1,3 +1,3 @@
 
-**URL**: [https://jashmaniar.pure-motion.vercel.app](https://pure-motion.vercel.app)
+**URL**: [https://pure-motion.jashmaniar.app](https://pure-motion.vercel.app)
 
