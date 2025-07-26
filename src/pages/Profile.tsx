@@ -7,7 +7,7 @@ const Profile = () => {
   const navigate = useNavigate();
 
   const userProfile = {
-    name: 'Alex Johnson',
+    name: 'Jash Maniar',
     age: 28,
     height: '5\'8"',
     weight: '155 lbs',
