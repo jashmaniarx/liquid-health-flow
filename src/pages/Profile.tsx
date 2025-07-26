@@ -191,7 +191,6 @@ const Profile = () => {
                   );
                 })}
               </div>
-              <h3>Made by Jash Maniar</h3>
             </div>
           </div>
         </main>
