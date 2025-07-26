@@ -16,7 +16,7 @@ const Index = () => {
         <header className="pt-16 pb-8 px-6">
           <div className="max-w-md mx-auto">
             <div className="glass-panel rounded-3xl p-6 text-center slide-up">
-              <h1 className="text-glass text-2xl font-bold mb-2">Good Morning!</h1>
+              <h1 className="text-glass text-2xl font-bold mb-2">Good Morning Jash Maniar!</h1>
               <p className="text-glass-muted">Ready to crush your health goals today?</p>
             </div>
           </div>
